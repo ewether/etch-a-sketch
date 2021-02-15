@@ -1,0 +1,12 @@
+#container {
+    width: 100%;
+    height: 100%;
+    display: grid;
+    position: absolute;
+    /* flex-wrap: wrap; */
+}
+
+.grid-item {
+    margin: 0;
+    border: 1px solid black;
+}

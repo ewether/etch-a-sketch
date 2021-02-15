@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Rock Paper Scissors</title>
+  <link rel="stylesheet" type="text/css" href="styles.css">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap" rel="stylesheet">
+  <meta charset="UTF-8"/>
+</head>
+<body>
+
+    <div>
+        <button id="clear-button">Clear Grid</button>
+    </div>
+
+    <div id="container"></div>
+
+  <script>
+
+    let squareArray = [];
+    let number = window.prompt('How many squares per side would you like the grid to have?');
+    // if number > 100
+    // -> return 'please choose a number lower than 100'
+    // else
+    // -> return
+
+    function createGrid(number) {
+        let gridArea = number * number;
+
+        for (let i = 0; i < gridArea; i++) {
+            container.style.gridTemplateColumns = `repeat(${number}, 1fr)`;
+            container.style.gridTemplateRows = `repeat(${number}, 1fr)`;
+            const gridItem = document.createElement('div');
+            gridItem.className = 'grid-item';
+            squareArray.push(gridItem);
+            container.insertAdjacentElement('beforeend', gridItem);
+        }
+
+        const clearButton = document.getElementById('clear-button');
+
+        squareArray.forEach(square => {
+            square.addEventListener('mouseover', function() {
+                square.style.backgroundColor = 'green';
+            });
+
+            clearButton.addEventListener('click', function() {
+                square.style.backgroundColor = 'white';
+            });
+        });
+    }
+
+    createGrid(number);
+
+  </script>
+</body>
+</html>
